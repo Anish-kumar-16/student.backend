@@ -17,5 +17,10 @@ pipeline{
 				sh './mvnw package -DskipTests'
 			}
 		}
+		stage('Docker Build'){
+			steps{
+				sh 'docker build -t student-backend:latest .'
+			}
+		}
 	}
 }
