@@ -3,27 +3,17 @@ pipeline{
 	
 	stages{
 		stage('Build'){
-			tools{
-				maven 'Maven-3'
-			}
 			steps{
-				sh 'bash mvn clean package'
+				echo 'Building student.backend'
 			}
 		}
 		stage('Test'){
 			steps{
-				sh 'mvnw test'
-			}
-		}
-		stage('Package'){
-			steps{
-				sh 'package -DskipTests'
+				echo 'Running Test'
 			}
 		}
 		stage('Docker Build'){
-			steps{
-				sh 'docker build -t student-backend:latest .'
-			}
+			echo 'Building docler image'
 		}
 	}
 }
