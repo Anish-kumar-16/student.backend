@@ -20,12 +20,12 @@ pipeline{
 	  }
 	  stage('Dcoker Push'){
 		steps{
-			withCredentials([usernamePassworf(
-				credentialsId:
-				'2ddce8ed-b53d-461e-9dc2-621f85f9e0b4',
+			withCredentials([[
+				$class:'UsernamePasswordMultiBinding',
+				credentialsId:'2ddce8ed-b53d-461e-9dc2-621f85f9e0b4',
 				usernameVariable='DOCKER_USERNAME',
 				passwordVariable='DOCKER_PASSWORD'
-			)]){
+			]]){
 				sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
 				sh 'docker tag student-backend anishkumar02/student-backent:latest'
 				sh 'docker push anishkumar02/student-backend:latest'
