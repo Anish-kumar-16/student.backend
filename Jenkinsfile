@@ -14,7 +14,7 @@ pipeline{
 		}
 		stage('Docker Build'){
 			steps{
-			echo 'Building docler image'
+			sh 'docker build -t student-backend .'
 		}
 		}
 	}
