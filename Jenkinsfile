@@ -7,7 +7,7 @@ pipeline{
 				maven 'Maven-3'
 			}
 			steps{
-				sh 'mvn clean package'
+				sh 'bash mvn clean package'
 			}
 		}
 		stage('Test'){
