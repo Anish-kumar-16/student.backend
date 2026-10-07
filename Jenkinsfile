@@ -3,18 +3,21 @@ pipeline{
 	
 	stages{
 		stage('Build'){
+			tools{
+				maven 'Maven-3'
+			}
 			steps{
-				sh 'chmod +x mvnw && ./mvnw clean package'
+				sh 'mvn clean package'
 			}
 		}
 		stage('Test'){
 			steps{
-				sh './mvnw test'
+				sh 'mvnw test'
 			}
 		}
 		stage('Package'){
 			steps{
-				sh './mvnw package -DskipTests'
+				sh 'package -DskipTests'
 			}
 		}
 		stage('Docker Build'){
