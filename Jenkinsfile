@@ -27,7 +27,8 @@ pipeline{
 				passwordVariable:'DOCKER_PASSWORD'
 			]]){
 				sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-				sh 'docker tag student-backend anishkumar02/student-backent:latest'
+				sh 'docker tag student-backend anishkumar02/student-backend:latest'
+				sh 'docker images'
 				sh 'docker push anishkumar02/student-backend:latest'
 			}
 		}
