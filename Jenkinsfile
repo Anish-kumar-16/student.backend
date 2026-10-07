@@ -4,12 +4,13 @@ pipeline{
 	stages{
 		stage('Build'){
 			steps{
-				echo 'Building student.backend'
+				sh 'chmod +x mvnw'
+				sh './mvnw clean package -DskipTests'
 			}
 		}
 		stage('Test'){
 			steps{
-				echo 'Running Test'
+				sh './mvnw test'
 			}
 		}
 		stage('Docker Build'){
